@@ -22,8 +22,8 @@ jobs:
         make -f Makefile.libretro platform=ps2 clean all
         git clone https://github.com/AKuHAK/RetroArch.git -b ps2_hdd --depth 1
         cd ./RetroArch
-        make -f Makefile.ps2.salamander -j1 release
-        make -f Makefile.ps2 -j1 release
+        make -f Makefile.ps2.salamander BUILD_FOR_PCSX2=1 -j1
+        make -f Makefile.ps2 BUILD_FOR_PCSX2=1 -j1
 
     - name: Get short SHA
       id: slug
