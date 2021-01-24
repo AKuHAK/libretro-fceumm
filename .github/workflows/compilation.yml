@@ -20,6 +20,10 @@ jobs:
     - name: Compile project
       run: |
         make -f Makefile.libretro platform=ps2 clean all
+        git clone https://github.com/AKuHAK/RetroArch.git -b ps2_hdd --depth 1
+        cd ./RetroArch
+        make -f Makefile.ps2.salamander -j1 release
+        make -f Makefile.ps2 -j1 release
 
     - name: Get short SHA
       id: slug
@@ -30,4 +34,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: fceumm_libretro_ps2-${{ steps.slug.outputs.sha8 }}
-        path: fceumm_libretro_ps2.a
+        path: |
+          *.elf
+          *.ELF
+          RetroArch/*.elf
