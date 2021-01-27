@@ -23,8 +23,8 @@ jobs:
         git clone https://github.com/AKuHAK/RetroArch.git -b ps2_hdd_1 --depth 1
         cp fceumm_libretro_ps2.a ./RetroArch/libretro_ps2.a
         cd ./RetroArch
-        # make -f Makefile.ps2.salamander -j1 DEBUG=1
-        make -f Makefile.ps2 -j1 DEBUG=1
+        # make -f Makefile.ps2.salamander -j1 DEBUG=1 BUILD_FOR_PCSX2=1
+        make -f Makefile.ps2 -j1 DEBUG=1 BUILD_FOR_PCSX2=1
         mkdir -p RETROARCH/cores
         # mv raboot-debug.elf RETROARCH/raboot-debug.elf
         mv retroarchps2-debug.elf RETROARCH/cores/fceumm_libretro_ps2.elf
